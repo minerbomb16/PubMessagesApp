@@ -1,0 +1,3 @@
+"Server=(localdb)\\MSSQLLocalDB;Database=PubMessagesDb;Trusted_Connection=True;"
+
+DobreHaslo123.
