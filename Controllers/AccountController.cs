@@ -1,9 +1,7 @@
-﻿// Controllers/AccountController.cs
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PubMessagesApp.Models;
 using PubMessagesApp.ViewModels;
-using System.Threading.Tasks;
 
 namespace PubMessagesApp.Controllers
 {
@@ -18,79 +16,112 @@ namespace PubMessagesApp.Controllers
             _signInManager = signInManager;
         }
 
-        // GET: /Account/Register
-        [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid) return View(model);
+
+            const int maxAttempts = 5;
+            const int lockoutMinutes = 5;
+
+            // Opóźnienie 1 sekundy (anty-bruteforce)
+            await Task.Delay(1000);
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // Nie informujemy, że użytkownik nie istnieje
+                ViewData["Error"] = "Nieprawidłowe dane logowania.";
+                return View(model);
+            }
+
+            // Sprawdzenie, czy konto jest zablokowane
+            var lockoutEnd = await _userManager.GetLockoutEndDateAsync(user);
+            if (lockoutEnd.HasValue && lockoutEnd.Value > DateTimeOffset.UtcNow)
+            {
+                var remainingLockout = lockoutEnd.Value - DateTimeOffset.UtcNow;
+                ViewData["Error"] = $"Konto jest zablokowane. Spróbuj ponownie za {remainingLockout.Minutes} min {remainingLockout.Seconds} s.";
+                return View(model); // Nie weryfikujemy hasła
+            }
+
+            // Próba logowania
+            var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                // Zresetuj liczbę nieudanych prób po udanym logowaniu
+                await _userManager.ResetAccessFailedCountAsync(user);
+                return RedirectToAction("Index", "Home");
+            }
+
+            // Zwiększ liczbę nieudanych prób
+            await _userManager.AccessFailedAsync(user);
+
+            // Odczekaj, aż zmiana liczby prób zostanie zaktualizowana
+            var failedAttempts = await _userManager.GetAccessFailedCountAsync(user);
+
+            // Obliczenie pozostałych prób
+            var remainingAttempts = maxAttempts - failedAttempts - 1;
+
+            if (remainingAttempts <= 0)
+            {
+                // Blokada konta po przekroczeniu maksymalnej liczby prób
+                await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow.AddMinutes(lockoutMinutes));
+                await _userManager.ResetAccessFailedCountAsync(user);
+                ViewData["Error"] = $"Konto zostało zablokowane na {lockoutMinutes} minut.";
+            }
+            else
+            {
+                // Wyświetl informację o pozostałych próbach
+                ViewData["Error"] = $"Nieprawidłowe dane logowania. Pozostało prób: {remainingAttempts}.";
+            }
+
+            return View(model);
         }
 
-        // POST: /Account/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid) return View(model);
+
+            var userExists = await _userManager.FindByEmailAsync(model.Email);
+            if (userExists != null)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    // Automatyczne logowanie po rejestracji
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+                ViewData["Error"] = "Konto na podany adres email już istnieje.";
+                return View(model);
             }
+
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
             return View(model);
         }
 
-        // GET: /Account/Login
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        // POST: /Account/Login
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: true);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                if (result.IsLockedOut)
-                {
-                    return View("Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Nieprawidłowa próba logowania.");
-                    return View(model);
-                }
-            }
-            return View(model);
-        }
-
-        // GET: /Account/Logout
-        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
-        // GET: /Account/Lockout
         [HttpGet]
-        public IActionResult Lockout()
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
         {
             return View();
         }

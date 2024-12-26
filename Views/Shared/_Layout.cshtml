@@ -1,6 +1,4 @@
-﻿<!-- Views/Shared/_Layout.cshtml -->
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="utf-8" />
@@ -29,8 +27,14 @@
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
+                            <li class="nav-item d-flex align-items-center">
+                                <span class="nav-link text-dark">@User.Identity.Name</span>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Logout">Wyloguj się</a>
+                                <form asp-action="Logout" asp-controller="Account" method="post" class="form-inline">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-link nav-link text-dark">Wyloguj się</button>
+                                </form>
                             </li>
                         }
                         else
@@ -48,6 +52,7 @@
         </nav>
     </header>
     <div class="container">
+        <!-- Wywołanie RenderBody() zapewnia, że treść widoku zostanie załadowana tutaj -->
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
