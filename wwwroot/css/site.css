@@ -1,31 +1,300 @@
+/* Global styles */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Pogrubienie tekstu */
+.bold {
+    font-weight: bold;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+/* Kursywa */
+.italic {
+    font-style: italic;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 960px;
+}
+
+footer {
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Ustawienia dla kontenera g³ównego */
+.flex-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar ustawiony na lewo */
+.sidebar {
+    flex: 0 0 250px; /* Sidebar ma sta³¹ szerokoœæ */
+    background-color: #f0f0f0; /* Jasny szary kolor */
+    color: black; /* Czarny tekst */
+    padding: 20px;
+    height: 100vh; /* Pe³na wysokoœæ */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Linki w sidebarze */
+.sidebar nav a {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    color: black; /* Czarny tekst */
+    background-color: white; /* Bia³y przycisk */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.sidebar nav a:hover {
+    background-color: #e6e6e6; /* Lekko ciemniejszy bia³y */
+}
+
+/* G³ówna zawartoœæ */
+.main-content {
+    flex: 1; /* Wype³nia resztê miejsca */
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Dodatkowe style */
+.messages-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.no-messages {
+    text-align: center;
+    color: #777;
+}
+
+.message-divider {
+    border: none;
+    height: 3px;
+    background-color: black;
+    margin: 20px 0;
+}
+
+.message-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-container img {
+    display: block;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 10px auto;
+}
+
+.message-container p {
+    color: #333;
+    margin-top: 10px;
+}
+
+.message-container strong {
+    color: #555;
+}
+
+/* Style przycisków */
+.btn-light {
+    background-color: white; /* Bia³y przycisk */
+    border: 1px solid #ddd;
+    color: black; /* Czarny tekst */
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-light:hover {
+    background-color: #f0f0f0; /* Lekko ciemniejszy bia³y */
+}
+
+/* Style przycisków formatuj¹cych w edytorze */
+.text-editor-toolbar {
+    margin-bottom: 10px;
+}
+
+/* Edytor treœci */
+#text-editor {
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: white;
+    overflow-y: auto;
+}
+
+#text-editor:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Placeholder dla edytora */
+#text-editor[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #aaa;
+    pointer-events: none;
+    display: block;
+}
+
+/* Domyœlnie ukrywamy komunikat "Brak Postów" */
+#no-more-messages {
+    display: none;
+}
+
+/* Stylizacja komunikatu, gdy jest widoczny */
+#no-more-messages.no-messages {
+    color: #777;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+/* Ukryty komunikat b³êdu */
+#error-message {
+    display: none;
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* Widoczny komunikat b³êdu */
+#error-message.visible {
+    display: block;
+}
+
+.format-button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.format-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Stylizacja kontenera formularza */
+.message-form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Stylizacja tytu³u formularza */
+.message-form-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Stylizacja grupy pola */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Etykieta pola */
+.form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* Pole tekstowe */
+textarea.form-input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+/* Pole pliku */
+input[type="file"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Przycisk wysy³ania */
+.submit-button {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Stylizacja paska narzêdzi */
+.text-editor-toolbar {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.format-button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.format-button:hover {
+    background-color: #e6e6e6;
 }

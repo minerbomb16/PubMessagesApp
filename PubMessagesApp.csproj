@@ -21,11 +21,18 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Otp.NET" Version="1.4.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="Migrations\" />
+    <Folder Include="wwwroot\uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\quill.snow.css" />
+    <None Include="wwwroot\js\quill.min.js" />
   </ItemGroup>
 
 </Project>

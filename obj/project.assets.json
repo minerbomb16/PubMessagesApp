@@ -852,6 +852,22 @@
           "lib/net8.0/Otp.NET.dll": {}
         }
       },
+      "SixLabors.ImageSharp/3.1.6": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
         "type": "package",
         "dependencies": {
@@ -2680,6 +2696,22 @@
         "otp.net.nuspec"
       ]
     },
+    "SixLabors.ImageSharp/3.1.6": {
+      "sha512": "dHQ5jugF9v+5/LCVHCWVzaaIL6WOehqJy6eju/0VFYFPEj2WtqkGPoEV9EVQP83dHsdoqYaTuWpZdwAd37UwfA==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.1.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "lib/net6.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.1.6.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
       "sha512": "ilkvNhrTersLmIVAcDwwPqfhUFCg19Z1GVMvCSi3xk6Akq94f4qadLORQCq/T8+9JgMiPs+F/NECw5uauviaNw==",
       "type": "package",
@@ -4179,7 +4211,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.0",
-      "Otp.NET >= 1.4.0"
+      "Otp.NET >= 1.4.0",
+      "SixLabors.ImageSharp >= 3.1.6"
     ]
   },
   "packageFolders": {
@@ -4268,6 +4301,10 @@
           "Otp.NET": {
             "target": "Package",
             "version": "[1.4.0, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.6, )"
           }
         },
         "imports": [

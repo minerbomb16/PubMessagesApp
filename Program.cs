@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PubMessagesApp.Data;
@@ -41,8 +42,14 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
+    // Wymuszanie HTTPS nawet w œrodowisku developerskim
+    app.UseHttpsRedirection();
+}
+else
+{
+    // W œrodowisku produkcyjnym, dodaj HSTS dla dodatkowego bezpieczeñstwa
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
@@ -57,19 +64,24 @@ app.UseAuthorization();
 // Dodanie polityki Content-Security-Policy (CSP)
 app.Use(async (context, next) =>
 {
+    var nonce = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
+    context.Items["CSPNonce"] = nonce;
+
     context.Response.Headers.Add("Content-Security-Policy",
         "default-src 'self'; " +
-        "script-src 'self' https://stackpath.bootstrapcdn.com https://code.jquery.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; " +
-        "style-src 'self' https://stackpath.bootstrapcdn.com; " +
-        "connect-src 'self' https://localhost:* wss://localhost:*; " +
+        "script-src 'self' https://cdnjs.cloudflare.com https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com 'nonce-" + nonce + "'; " +
+        "style-src 'self' https://stackpath.bootstrapcdn.com 'nonce-" + nonce + "'; " +
+        "img-src 'self' data:; " + // Zezwala na obrazy z `data:`
+        "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:*; " +
         "frame-src 'self';");
+
     await next();
 });
 
 // Mapowanie tras
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Messages}/{action=Index}/{id?}");
 
 // Automatyczne migrowanie bazy danych
 using (var scope = app.Services.CreateScope())

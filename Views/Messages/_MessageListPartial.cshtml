@@ -1,0 +1,17 @@
+﻿@model IEnumerable<PubMessagesApp.Models.Message>
+
+@foreach (var message in Model)
+{
+    <div class="message-container">
+        <p><strong>@message.Email</strong></p>
+
+        @if (message.ImageData != null && !string.IsNullOrEmpty(message.ImageMimeType))
+        {
+            <img src="data:@message.ImageMimeType;base64,@Convert.ToBase64String(message.ImageData)" alt="Obraz wiadomości" />
+        }
+
+        <!-- Renderowanie sformatowanego tekstu -->
+        <p>@Html.Raw(message.Text)</p>
+    </div>
+    <hr class="message-divider">
+}

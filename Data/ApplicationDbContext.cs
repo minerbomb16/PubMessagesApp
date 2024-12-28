@@ -1,5 +1,4 @@
-﻿// Data/ApplicationDbContext.cs
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PubMessagesApp.Models;
 
@@ -12,7 +11,6 @@ namespace PubMessagesApp.Data
         {
         }
 
-        // Możesz dodać dodatkowe DbSet tutaj, np.:
-        // public DbSet<Message> Messages { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

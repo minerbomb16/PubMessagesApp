@@ -49,7 +49,7 @@ namespace PubMessagesApp.Controllers
             {
                 // Zresetuj liczbę nieudanych prób po udanym logowaniu
                 await _userManager.ResetAccessFailedCountAsync(user);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Messages");
             }
 
             // Zwiększ liczbę nieudanych prób
@@ -111,7 +111,7 @@ namespace PubMessagesApp.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Messages");
         }
 
         [HttpGet]

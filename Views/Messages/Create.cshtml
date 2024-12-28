@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Dodaj Wiadomość";
+    var nonce = Context.Items["CSPNonce"];
+}
+
+<div class="message-form-container">
+    <h2 class="message-form-title">Dodaj Wiadomość</h2>
+
+    <form method="post" enctype="multipart/form-data" action="/Messages/Create" id="messageForm">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="text-editor" class="form-label">Treść wiadomości</label>
+
+            <!-- Pasek narzędzi -->
+            <div class="text-editor-toolbar">
+                <button type="button" id="boldButton" class="format-button"><b>B</b></button>
+                <button type="button" id="italicButton" class="format-button"><i>I</i></button>
+            </div>
+
+            <!-- Edytor z contenteditable -->
+            <div id="text-editor" class="form-input" contenteditable="true" placeholder="Wpisz treść wiadomości..."></div>
+            <input type="hidden" id="text" name="text" />
+            <p id="error-message" class="no-messages">Treść wiadomości jest wymagana.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="image" class="form-label">Dodaj obraz (opcjonalne, max 20 MB)</label>
+            <input type="file" id="image" name="image" class="form-input" accept="image/png, image/jpeg" />
+        </div>
+
+        <button type="submit" class="submit-button">Wyślij</button>
+    </form>
+</div>
+
+<script nonce="@nonce">
+    document.getElementById('boldButton').addEventListener('click', function () {
+        document.execCommand('bold');
+    });
+
+    document.getElementById('italicButton').addEventListener('click', function () {
+        document.execCommand('italic');
+    });
+
+    document.getElementById('messageForm').addEventListener('submit', function (event) {
+        const editorContent = document.getElementById('text-editor').innerHTML.trim();
+        const errorMessage = document.getElementById('error-message');
+
+        if (!editorContent || editorContent === "<br>") {
+            event.preventDefault();
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+            document.getElementById('text').value = editorContent;
+        }
+    });
+
+    document.getElementById('image').addEventListener('change', function () {
+        const file = this.files[0];
+        if (file && file.size > 20 * 1024 * 1024) {
+            alert('Rozmiar pliku nie może przekraczać 20 MB.');
+            this.value = '';
+        }
+    });
+</script>

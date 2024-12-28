@@ -19,6 +19,7 @@ C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\css\bootstrap-g
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\micha\Desktop\PubMessagesApp\wwwroot\js\messages.js
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
@@ -62,6 +63,7 @@ C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\css\bootstrap-r
 C:\Users\micha\Desktop\PubMessagesApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\js\messages.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

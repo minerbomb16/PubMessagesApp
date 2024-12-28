@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zgWqw5V9qB0=",
+  "dgSpecHash": "rU3RtKNcQpo=",
   "success": true,
   "projectFilePath": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\PubMessagesApp.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "C:\\Users\\micha\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\otp.net\\1.4.0\\otp.net.1.4.0.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\sixlabors.imagesharp\\3.1.6\\sixlabors.imagesharp.3.1.6.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.2\\sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
     "C:\\Users\\micha\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",

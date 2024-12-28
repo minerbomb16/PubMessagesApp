@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K1YL2mDajupYV4bxAkJggM0SBU7iL7uONasSZmcsMTU=",
+  "Hash": "2CgrAxe8cWpafw8Y8lVPEtiIu6ULX9aJ+kHaQ/cHu3E=",
   "Source": "PubMessagesApp",
   "BasePath": "_content/PubMessagesApp",
   "Mode": "Default",
@@ -458,6 +458,27 @@
       "OriginalItemSpec": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\cd1wkdt1xw-5fm3ke6p7q.gz",
+      "SourceId": "PubMessagesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/PubMessagesApp",
+      "RelativePath": "js/messages#[.{fingerprint=5fm3ke6p7q}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "b5jcgme7x8",
+      "Integrity": "77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js"
+    },
+    {
       "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\dcr7b68nym-gye83jo8yx.gz",
       "SourceId": "PubMessagesApp",
       "SourceType": "Discovered",
@@ -815,12 +836,12 @@
       "OriginalItemSpec": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-b9sayid5wm.gz",
+      "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-khiidkotqa.gz",
       "SourceId": "PubMessagesApp",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/PubMessagesApp",
-      "RelativePath": "css/site#[.{fingerprint=b9sayid5wm}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=khiidkotqa}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -829,8 +850,8 @@
       "RelatedAsset": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "wf4wcyqcqt",
-      "Integrity": "fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=",
+      "Fingerprint": "riivq1swmn",
+      "Integrity": "gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css"
@@ -1417,8 +1438,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b9sayid5wm",
-      "Integrity": "j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=",
+      "Fingerprint": "khiidkotqa",
+      "Integrity": "GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1443,6 +1464,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
+      "SourceId": "PubMessagesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\",
+      "BasePath": "_content/PubMessagesApp",
+      "RelativePath": "js/messages#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5fm3ke6p7q",
+      "Integrity": "QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\messages.js"
     },
     {
       "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\site.js",
@@ -2728,13 +2770,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.b9sayid5wm.css",
-      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-b9sayid5wm.gz",
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-khiidkotqa.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.003125000000"
+          "Quality": "0.000635324015"
         }
       ],
       "ResponseHeaders": [
@@ -2744,19 +2786,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1573"
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 14:41:51 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -2772,26 +2814,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "W/\"GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "b9sayid5wm"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css",
+      "Route": "css/site.css",
       "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2801,7 +2835,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "667"
+          "Value": "5670"
         },
         {
           "Name": "Content-Type",
@@ -2809,11 +2843,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
+          "Value": "\"GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 14:41:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-khiidkotqa.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1573"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:41:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.khiidkotqa.css",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-khiidkotqa.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000635324015"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1573"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:41:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "khiidkotqa"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.khiidkotqa.css",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5670"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:41:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2823,7 +3002,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "khiidkotqa"
         },
         {
           "Name": "label",
@@ -2831,13 +3010,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
+          "Value": "sha256-GOsXWbijQwpNlXVm9J6VZuTYX37hIS+MuizBPM1g1+0="
         }
       ]
     },
     {
-      "Route": "css/site.b9sayid5wm.css.gz",
-      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-b9sayid5wm.gz",
+      "Route": "css/site.khiidkotqa.css.gz",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-khiidkotqa.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2846,7 +3025,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "319"
+          "Value": "1573"
         },
         {
           "Name": "Content-Type",
@@ -2854,11 +3033,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
+          "Value": "\"gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 14:41:51 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2876,7 +3055,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b9sayid5wm"
+          "Value": "khiidkotqa"
         },
         {
           "Name": "label",
@@ -2884,144 +3063,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-b9sayid5wm.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.003125000000"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "319"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "667"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-j6fhJSuuyLpOSLuPJU0TsDV0iNjor5S3rDnvxJrt4bg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\nv2zyhygty-b9sayid5wm.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "319"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-fNKkLSNFLZMVTc2zVrpMXQqOwPU3sU4GWcfEbCR2V1I="
+          "Value": "sha256-gy0r11Rq/7xPkrR0/WIly2tAIsFwKZtBLdF0DKGf3MU="
         }
       ]
     },
@@ -3324,6 +3366,304 @@
       ]
     },
     {
+      "Route": "js/messages.5fm3ke6p7q.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\cd1wkdt1xw-5fm3ke6p7q.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002061855670"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:13:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5fm3ke6p7q"
+        },
+        {
+          "Name": "label",
+          "Value": "js/messages.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0="
+        }
+      ]
+    },
+    {
+      "Route": "js/messages.5fm3ke6p7q.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:13:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5fm3ke6p7q"
+        },
+        {
+          "Name": "label",
+          "Value": "js/messages.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0="
+        }
+      ]
+    },
+    {
+      "Route": "js/messages.5fm3ke6p7q.js.gz",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\cd1wkdt1xw-5fm3ke6p7q.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:13:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5fm3ke6p7q"
+        },
+        {
+          "Name": "label",
+          "Value": "js/messages.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw="
+        }
+      ]
+    },
+    {
+      "Route": "js/messages.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\cd1wkdt1xw-5fm3ke6p7q.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002061855670"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:13:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0="
+        }
+      ]
+    },
+    {
+      "Route": "js/messages.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:13:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QcC1KcRXz1xj1cE6+9oIGR3WPKmpjjK1o/IKnP/Aoc0="
+        }
+      ]
+    },
+    {
+      "Route": "js/messages.js.gz",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\cd1wkdt1xw-5fm3ke6p7q.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Dec 2024 14:13:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-77OEHEGBn8sa+tbCJXYGEWIweLPpgLS0uf8ugPpKplw="
+        }
+      ]
+    },
+    {
       "Route": "js/site.js",
       "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\xi8oei1338-xtxxf3hu2r.gz",
       "Selectors": [
@@ -3348,7 +3688,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Fri, 27 Dec 2024 14:49:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3401,7 +3741,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Fri, 27 Dec 2024 14:49:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3438,7 +3778,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Fri, 27 Dec 2024 14:49:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3485,7 +3825,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Fri, 27 Dec 2024 14:49:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3546,7 +3886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Fri, 27 Dec 2024 14:49:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3591,7 +3931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Fri, 27 Dec 2024 14:49:03 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21310,7 +21650,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21371,7 +21711,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21416,7 +21756,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21471,7 +21811,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21532,7 +21872,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21577,7 +21917,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21632,7 +21972,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21685,7 +22025,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21722,7 +22062,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21769,7 +22109,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21822,7 +22162,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -21859,7 +22199,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 25 Dec 2024 17:09:14 GMT"
+          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
         },
         {
           "Name": "Cache-Control",
