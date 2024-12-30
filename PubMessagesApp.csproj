@@ -30,9 +30,4 @@
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\css\quill.snow.css" />
-    <None Include="wwwroot\js\quill.min.js" />
-  </ItemGroup>
-
 </Project>

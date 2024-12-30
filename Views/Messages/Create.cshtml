@@ -29,6 +29,11 @@
             <input type="file" id="image" name="image" class="form-input" accept="image/png, image/jpeg" />
         </div>
 
+        <div class="form-group">
+            <label for="signMessagePassword" class="form-label">Wprowadź hasło, aby podpisać wiadomość (opcjonalne)</label>
+            <input type="password" id="signMessagePassword" name="signMessagePassword" class="form-input" />
+        </div>
+
         <button type="submit" class="submit-button">Wyślij</button>
     </form>
 </div>
@@ -42,17 +47,41 @@
         document.execCommand('italic');
     });
 
-    document.getElementById('messageForm').addEventListener('submit', function (event) {
+    document.getElementById('messageForm').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Zapobieganie przeładowaniu strony
+
         const editorContent = document.getElementById('text-editor').innerHTML.trim();
         const errorMessage = document.getElementById('error-message');
+        const signMessagePassword = document.getElementById('signMessagePassword').value;
 
         if (!editorContent || editorContent === "<br>") {
-            event.preventDefault();
             errorMessage.style.display = "block";
+            return;
         } else {
             errorMessage.style.display = "none";
             document.getElementById('text').value = editorContent;
         }
+
+        if (signMessagePassword) {
+            try {
+                const response = await fetch('/Messages/ValidatePassword', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: signMessagePassword })
+                });
+
+                const result = await response.json();
+                if (!result.success) {
+                    alert('Nieprawidłowe hasło. Spróbuj ponownie.');
+                    document.getElementById('signMessagePassword').value = '';
+                    return;
+                }
+            } catch (error) {
+                console.error('Błąd podczas walidacji hasła:', error);
+                return;
+            }
+        }
+        event.target.submit();
     });
 
     document.getElementById('image').addEventListener('change', function () {

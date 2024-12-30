@@ -5,10 +5,14 @@ using PubMessagesApp.Models;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using System.Text;
 using Ganss.Xss;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
+using AngleSharp.Css.Dom;
+using Microsoft.AspNetCore.Identity;
 
 namespace PubMessagesApp.Controllers
 {
@@ -36,6 +40,7 @@ namespace PubMessagesApp.Controllers
             foreach (var message in messages)
             {
                 message.Text = sanitizer.Sanitize(message.Text);
+                message.IsSignatureValid = VerifySignature(message);
             }
 
             if (skip > 0)
@@ -56,7 +61,7 @@ namespace PubMessagesApp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string text, IFormFile image)
+        public async Task<IActionResult> Create(string text, IFormFile image, string signMessagePassword)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
@@ -93,11 +98,16 @@ namespace PubMessagesApp.Controllers
 
                         using (var img = Image.Load<Rgba32>(memoryStream))
                         {
-                            img.Metadata.ExifProfile = null; // Usuwanie metadanych
+                            img.Metadata.ExifProfile = null;
 
                             if (img.Width > 5000 || img.Height > 5000)
                             {
                                 ModelState.AddModelError("Image", "Rozmiar obrazu jest zbyt duży.");
+                                return View();
+                            }
+                            else if (img.Width < 50 || img.Height < 50)
+                            {
+                                ModelState.AddModelError("Image", "Rozmiar obrazu jest zbyt mały.");
                                 return View();
                             }
 
@@ -135,10 +145,73 @@ namespace PubMessagesApp.Controllers
                 Timestamp = DateTime.UtcNow
             };
 
+            if (!string.IsNullOrEmpty(signMessagePassword))
+            {
+                var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                if (user == null || string.IsNullOrEmpty(user.PrivateKey))
+                {
+                    return BadRequest("Nie znaleziono użytkownika lub brak klucza prywatnego.");
+                }
+
+                using (var rsa = RSA.Create())
+                {
+                    rsa.ImportRSAPrivateKey(Convert.FromBase64String(user.PrivateKey), out _);
+                    var messageBytes = Encoding.UTF8.GetBytes(sanitizedText);
+                    var signature = rsa.SignData(messageBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+                    message.Signature = Convert.ToBase64String(signature);
+                }
+            }
+
             _context.Messages.Add(message);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        private bool VerifySignature(Message message)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Email == message.Email);
+            if (user == null || string.IsNullOrEmpty(user.PublicKey) || string.IsNullOrEmpty(message.Signature))
+            {
+                return false;
+            }
+
+            using (var rsa = RSA.Create())
+            {
+                rsa.ImportRSAPublicKey(Convert.FromBase64String(user.PublicKey), out _);
+                var messageBytes = Encoding.UTF8.GetBytes(message.Text);
+                var signatureBytes = Convert.FromBase64String(message.Signature);
+                return rsa.VerifyData(messageBytes, signatureBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> ValidatePassword([FromBody] ValidatePasswordRequest request)
+        {
+            // Opóźnienie 1 sekundy
+            await Task.Delay(1000);
+
+            var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            if (user == null)
+            {
+                return Json(new { success = false });
+            }
+
+            var passwordHasher = new PasswordHasher<ApplicationUser>();
+            var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
+
+            if (result == PasswordVerificationResult.Success)
+            {
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false });
+        }
+
+        public class ValidatePasswordRequest
+        {
+            public string Password { get; set; }
         }
     }
 }

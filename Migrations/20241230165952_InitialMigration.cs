@@ -30,6 +30,8 @@ namespace PubMessagesApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "TEXT", nullable: false),
+                    PublicKey = table.Column<string>(type: "TEXT", nullable: true),
+                    PrivateKey = table.Column<string>(type: "TEXT", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -60,7 +62,9 @@ namespace PubMessagesApp.Migrations
                     Text = table.Column<string>(type: "TEXT", nullable: false),
                     ImageData = table.Column<byte[]>(type: "BLOB", nullable: true),
                     ImageMimeType = table.Column<string>(type: "TEXT", nullable: true),
-                    Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    Timestamp = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Signature = table.Column<string>(type: "TEXT", nullable: true),
+                    IsSignatureValid = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

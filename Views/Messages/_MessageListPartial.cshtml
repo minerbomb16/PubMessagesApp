@@ -12,6 +12,23 @@
 
         <!-- Renderowanie sformatowanego tekstu -->
         <p>@Html.Raw(message.Text)</p>
+
+        <!-- Informacja o podpisie -->
+        @if (!string.IsNullOrEmpty(message.Signature))
+        {
+            @if (message.IsSignatureValid)
+            {
+                <p class="signature-status text-success">✔️ Podpis prawidłowy</p>
+            }
+            else
+            {
+                <p class="signature-status text-danger">❌ Podpis nieprawidłowy</p>
+            }
+        }
+        else
+        {
+            <p class="signature-status text-muted">Brak podpisu</p>
+        }
     </div>
     <hr class="message-divider">
 }

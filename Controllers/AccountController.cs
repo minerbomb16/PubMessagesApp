@@ -91,6 +91,7 @@ namespace PubMessagesApp.Controllers
             }
 
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            user.GenerateKeys();
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)

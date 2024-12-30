@@ -3,64 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\views\\messages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:views\\messages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\views\\messages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:views\\messages\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:models\\message.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\wwwroot\\js\\messages.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:wwwroot\\js\\messages.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:controllers\\messagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\views\\messages\\_messagelistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:views\\messages\\_messagelistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\views\\messages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:views\\messages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\keys\\key-f3f1b9cf-14ce-4401-b5a7-6d4e0935ff50.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -79,158 +47,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MessagesController.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\MessagesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MessagesController.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\MessagesController.cs",
-              "RelativeToolTip": "Controllers\\MessagesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T15:56:15.837Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Messages\\Create.cshtml",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\Create.cshtml",
-              "RelativeToolTip": "Views\\Messages\\Create.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAmwEEAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\Create.cshtml*",
+              "RelativeToolTip": "Views\\Messages\\Create.cshtml*",
+              "ViewState": "AgIAADIAAAAAAAAAAAAwwEAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-27T12:42:40.135Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Messages\\Index.cshtml",
               "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\Index.cshtml",
               "RelativeToolTip": "Views\\Messages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-27T12:46:20.76Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAABcBAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-27T14:48:54.589Z",
+              "DocumentIndex": 1,
+              "Title": "MessagesController.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\MessagesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MessagesController.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\MessagesController.cs",
+              "RelativeToolTip": "Controllers\\MessagesController.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAwwNEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-27T15:56:15.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T11:37:46.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "_MessageListPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\_MessageListPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Messages\\_MessageListPartial.cshtml",
               "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Messages\\_MessageListPartial.cshtml",
               "RelativeToolTip": "Views\\Messages\\_MessageListPartial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-28T14:09:03.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "messages.js",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\messages.js",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
-              "RelativeToolTip": "wwwroot\\js\\messages.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-12-28T14:07:31.467Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Message.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Models\\Message.cs",
-              "RelativeDocumentMoniker": "Models\\Message.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Models\\Message.cs",
-              "RelativeToolTip": "Models\\Message.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T16:58:01.268Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T11:32:27.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAABoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T11:11:38.682Z"
+              "WhenOpened": "2024-12-26T11:11:38.682Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T17:00:35.328Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T11:37:46.632Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-27T15:36:35.244Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 6,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -242,31 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-26T11:45:00.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\ViewModels\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\ViewModels\\LoginViewModel.cs",
-              "RelativeToolTip": "ViewModels\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T11:11:09.618Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 7,
               "Title": "key-f3f1b9cf-14ce-4401-b5a7-6d4e0935ff50.xml",
               "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\keys\\key-f3f1b9cf-14ce-4401-b5a7-6d4e0935ff50.xml",
               "RelativeDocumentMoniker": "keys\\key-f3f1b9cf-14ce-4401-b5a7-6d4e0935ff50.xml",

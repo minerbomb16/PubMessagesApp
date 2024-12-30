@@ -142,21 +142,6 @@ C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\lp8pgqxacm-u9q
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\t9w484077c-h1s4sie4z3.gz
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\in7pbzma16-4d85u1mtcx.gz
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\dio7g6vxk8-0j3bgjxly4.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\x3x903s4w4-03hjc8e09r.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\uusoocljdh-48y08845bh.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\ovqt12o7fx-356vix0kms.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\opfj89k9lu-83jwlth58m.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\unuwbev9pk-mrlpezrjn3.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\6w9txfoga5-worgj0nhwm.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\vtc9hsje8g-gk0pw8i4co.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\8jfsi90qiz-x0q3zqp4vz.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\48w4lspgz4-d6nrnj6jjx.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\5ysqptsfni-m9qm4tazc0.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\4gc49mwc4e-ttgo8qnofa.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\5r90m3jfhn-jjsuc0puko.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\l1vdkg0yu3-9vr69e8ynj.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\igp4hlch5b-87fc7y1x7t.gz
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\bu9u53djli-mlv21k5csn.gz
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\p11ygslhar-9rvxov0t2f.gz
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\xr26vcm132-9rvxov0t2f.gz
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets.build.json
@@ -168,7 +153,6 @@ C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets\msbuild.b
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.PubMessagesApp.props
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.PubMessagesApp.props
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets.pack.json
-C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\PubMessa.A1DC5161.Up2Date
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\PubMessagesApp.dll
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\refint\PubMessagesApp.dll
@@ -178,3 +162,4 @@ C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\ref\PubMessagesApp.dll
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\cd1wkdt1xw-5fm3ke6p7q.gz
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\nv2zyhygty-khiidkotqa.gz
 C:\Users\micha\Desktop\PubMessagesApp\bin\Debug\net9.0\SixLabors.ImageSharp.dll
+C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

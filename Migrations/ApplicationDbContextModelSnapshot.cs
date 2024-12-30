@@ -187,6 +187,12 @@ namespace PubMessagesApp.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("PrivateKey")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PublicKey")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
@@ -223,6 +229,12 @@ namespace PubMessagesApp.Migrations
                         .HasColumnType("BLOB");
 
                     b.Property<string>("ImageMimeType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsSignatureValid")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Signature")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Text")

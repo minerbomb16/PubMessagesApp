@@ -10,5 +10,7 @@ namespace PubMessagesApp.Models
         public byte[]? ImageData { get; set; } // Nullable
         public string? ImageMimeType { get; set; } // Nullable
         public DateTime Timestamp { get; set; }
+        public string? Signature { get; set; }  // Nowe pole na podpis wiadomości
+        public bool IsSignatureValid { get; set; } // Pole tylko do weryfikacji (niezapisane w bazie danych)
     }
 }
