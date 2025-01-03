@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PubMessagesApp.Data;
 using PubMessagesApp.Models;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +42,22 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied"; // Œcie¿ka do b³êdu dostêpu
 });
 
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+
+    // Dodaj zakresy IP znane dla proxy
+    options.KnownNetworks.Clear(); // Czyœci domyœlne
+    options.KnownProxies.Clear();  // Czyœci domyœlne
+    options.KnownNetworks.Add(new Microsoft.AspNetCore.HttpOverrides.IPNetwork(
+        IPAddress.Parse("172.18.0.0"), 16)); // Zakres IP Dockera
+});
+
 var app = builder.Build();
+
+// Dodaj middleware do obs³ugi nag³ówków przesy³anych przez proxy
+app.UseForwardedHeaders();
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -64,6 +81,10 @@ app.UseAuthorization();
 // Dodanie polityki Content-Security-Policy (CSP)
 app.Use(async (context, next) =>
 {
+    Console.WriteLine("Nag³ówki proxy:");
+    Console.WriteLine($"X-Forwarded-For: {context.Request.Headers["X-Forwarded-For"]}");
+    Console.WriteLine($"X-Real-IP: {context.Request.Headers["X-Real-IP"]}");
+
     var nonce = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
     context.Items["CSPNonce"] = nonce;
 
@@ -72,8 +93,14 @@ app.Use(async (context, next) =>
         "script-src 'self' https://cdnjs.cloudflare.com https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com 'nonce-" + nonce + "'; " +
         "style-src 'self' https://stackpath.bootstrapcdn.com 'nonce-" + nonce + "'; " +
         "img-src 'self' data:; " + // Zezwala na obrazy z `data:`
-        "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:*; " +
+        "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://api.ipify.org; " + // Zezwolenie na po³¹czenia z API ipify
         "frame-src 'self';");
+
+    context.Response.OnStarting(() =>
+    {
+        context.Response.Headers.Remove("Server");
+        return Task.CompletedTask;
+    });
 
     await next();
 });

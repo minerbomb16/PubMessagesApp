@@ -1,0 +1,29 @@
+﻿@model IEnumerable<PubMessagesApp.Models.LoginAttempt>
+
+@{
+    ViewData["Title"] = "Historia logowań";
+}
+
+<h2>Historia logowań</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Udane logowanie</th>
+            <th>Adres IP</th>
+            <th>Lokalizacja</th>
+            <th>Data i godzina</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var attempt in Model)
+        {
+            <tr>
+                <td>@(attempt.Success ? "✔️" : "❌")</td>
+                <td>@attempt.IpAddress</td>
+                <td>@attempt.Location</td>
+                <td>@attempt.Timestamp</td>
+            </tr>
+        }
+    </tbody>
+</table>

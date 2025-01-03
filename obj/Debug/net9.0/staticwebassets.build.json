@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VWXUPtithHWr+mHaYlICEh9h+ic2SHiIbyx5TJqKG2E=",
+  "Hash": "QEu7f8fF4E/QwGHma97fmxntIN5v+S9mgB/3j7jZ9Dw=",
   "Source": "PubMessagesApp",
   "BasePath": "_content/PubMessagesApp",
   "Mode": "Default",
@@ -668,6 +668,27 @@
       "OriginalItemSpec": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\css\\site.css"
     },
     {
+      "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\o4gy09b0b7-qsp1yl3y53.gz",
+      "SourceId": "PubMessagesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/PubMessagesApp",
+      "RelativePath": "js/login#[.{fingerprint=qsp1yl3y53}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\login.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "hvmej7szyv",
+      "Integrity": "s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\login.js"
+    },
+    {
       "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\okmxw206c6-61n19gt1b8.gz",
       "SourceId": "PubMessagesApp",
       "SourceType": "Discovered",
@@ -1149,6 +1170,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\login.js",
+      "SourceId": "PubMessagesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\",
+      "BasePath": "_content/PubMessagesApp",
+      "RelativePath": "js/login#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qsp1yl3y53",
+      "Integrity": "2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
       "Identity": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
@@ -2732,6 +2774,304 @@
         {
           "Name": "integrity",
           "Value": "sha256-jcY0RXFOlcp4VNTCcYQtWVZZBlr+ZY+AOv6/0S5dnF8="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\o4gy09b0b7-qsp1yl3y53.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001945525292"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "513"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jan 2025 20:14:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\login.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1082"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jan 2025 20:14:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.js.gz",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\o4gy09b0b7-qsp1yl3y53.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "513"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jan 2025 20:14:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.qsp1yl3y53.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\o4gy09b0b7-qsp1yl3y53.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001945525292"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "513"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jan 2025 20:14:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qsp1yl3y53"
+        },
+        {
+          "Name": "label",
+          "Value": "js/login.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.qsp1yl3y53.js",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\login.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1082"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jan 2025 20:14:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qsp1yl3y53"
+        },
+        {
+          "Name": "label",
+          "Value": "js/login.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2r66dlFgKxY+xAJN3wVJzJrhbIi2N1PUTPHbECTtU4w="
+        }
+      ]
+    },
+    {
+      "Route": "js/login.qsp1yl3y53.js.gz",
+      "AssetFile": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\Debug\\net9.0\\compressed\\o4gy09b0b7-qsp1yl3y53.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "513"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 03 Jan 2025 20:14:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qsp1yl3y53"
+        },
+        {
+          "Name": "label",
+          "Value": "js/login.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-s6WNnDS0abaKIwbPiFdoLZSim6JUDoBaYvLm3HxZUp4="
         }
       ]
     },
@@ -16550,7 +16890,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16611,7 +16951,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16656,7 +16996,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16711,7 +17051,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16772,7 +17112,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16817,7 +17157,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16872,7 +17212,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16925,7 +17265,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16962,7 +17302,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17009,7 +17349,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17062,7 +17402,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -17099,7 +17439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Dec 2024 13:56:09 GMT"
+          "Value": "Fri, 03 Jan 2025 16:31:02 GMT"
         },
         {
           "Name": "Cache-Control",

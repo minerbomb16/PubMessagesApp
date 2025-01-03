@@ -17,8 +17,12 @@
     image: nginx:latest
     container_name: nginx
     ports:
-      - "80:80"
-      - "443:443"
+      - published: 80
+        target: 80
+        mode: host
+      - published: 443
+        target: 443
+        mode: host
     depends_on:
       - app
     volumes:
@@ -30,3 +34,6 @@
 networks:
   app_network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"

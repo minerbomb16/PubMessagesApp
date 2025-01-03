@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
+    },
+    {
       "Id": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\wwwroot\\js\\messages.js",
       "PackagePath": "staticwebassets\\js\\messages.js"
     },

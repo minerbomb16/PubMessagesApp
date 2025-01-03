@@ -6,7 +6,7 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<form asp-action="Login" method="post">
+<form id="loginForm" asp-action="Login" method="post">
     @Html.AntiForgeryToken()
     <div class="form-group">
         <label asp-for="Email"></label>
@@ -18,7 +18,7 @@
         <input asp-for="Password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
-
+    <input type="hidden" id="userIp" name="UserIp" value="Unknown" />
     @if (ViewData["Error"] != null)
     {
         <div class="alert alert-danger">
@@ -31,4 +31,5 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial");
+    <script src="/js/login.js"></script>
 }

@@ -13,5 +13,7 @@ namespace PubMessagesApp.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
+
+        public string UserIp { get; set; }
     }
 }

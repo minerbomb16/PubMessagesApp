@@ -163,3 +163,8 @@ C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\cd1wkdt1xw-5fm
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\nv2zyhygty-khiidkotqa.gz
 C:\Users\micha\Desktop\PubMessagesApp\bin\Debug\net9.0\SixLabors.ImageSharp.dll
 C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\micha\Desktop\PubMessagesApp\bin\Debug\net9.0\MaxMind.Db.dll
+C:\Users\micha\Desktop\PubMessagesApp\bin\Debug\net9.0\MaxMind.GeoIP2.dll
+C:\Users\micha\Desktop\PubMessagesApp\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\micha\Desktop\PubMessagesApp\bin\Debug\net9.0\Data\country.mmdb
+C:\Users\micha\Desktop\PubMessagesApp\obj\Debug\net9.0\compressed\o4gy09b0b7-qsp1yl3y53.gz
