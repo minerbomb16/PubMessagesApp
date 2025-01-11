@@ -11,7 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    var password = Environment.GetEnvironmentVariable("DATABASE_PASSWORD") ?? "Very0#ArrrdT0gue$sPAS$worD531";
+    var connectionString = $"Data Source=PubMessagesDb.sqlite;Password={password};";
+    options.UseSqlite(connectionString);
+});
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
@@ -42,31 +46,17 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied"; // Œcie¿ka do b³êdu dostêpu
 });
 
-builder.Services.Configure<ForwardedHeadersOptions>(options =>
-{
-    options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-
-    // Dodaj zakresy IP znane dla proxy
-    options.KnownNetworks.Clear(); // Czyœci domyœlne
-    options.KnownProxies.Clear();  // Czyœci domyœlne
-    options.KnownNetworks.Add(new Microsoft.AspNetCore.HttpOverrides.IPNetwork(
-        IPAddress.Parse("172.18.0.0"), 16)); // Zakres IP Dockera
-});
-
 var app = builder.Build();
 
 // Dodaj middleware do obs³ugi nag³ówków przesy³anych przez proxy
 app.UseForwardedHeaders();
 
-
 if (app.Environment.IsDevelopment())
 {
-    // Wymuszanie HTTPS nawet w œrodowisku developerskim
     app.UseHttpsRedirection();
 }
 else
 {
-    // W œrodowisku produkcyjnym, dodaj HSTS dla dodatkowego bezpieczeñstwa
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
@@ -115,7 +105,29 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<ApplicationDbContext>();
-    context.Database.Migrate();
+
+    try
+    {
+        Console.WriteLine("Próba utworzenia bazy danych...");
+        context.Database.Migrate();
+        Console.WriteLine("Migracja zakoñczona sukcesem.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"B³¹d podczas migracji: {ex.Message}");
+    }
+
+    // Inicjalizacja szyfrowania bazy danych
+    using (var connection = context.Database.GetDbConnection())
+    {
+        connection.Open();
+        using (var command = connection.CreateCommand())
+        {
+            var password = Environment.GetEnvironmentVariable("DATABASE_PASSWORD") ?? "Very0#ArrrdT0gue$sPAS$worD531";
+            command.CommandText = $"PRAGMA key = '{password}';";
+            command.ExecuteNonQuery();
+        }
+    }
 }
 
 // Uruchomienie aplikacji

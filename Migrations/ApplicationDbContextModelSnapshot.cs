@@ -164,6 +164,9 @@ namespace PubMessagesApp.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("EncryptedPrivateKey")
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
 
@@ -187,13 +190,16 @@ namespace PubMessagesApp.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("PrivateKey")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("PublicKey")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Salt")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SessionId")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("TwoFactorEnabled")

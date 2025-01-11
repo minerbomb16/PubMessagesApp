@@ -8,6 +8,7 @@
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:5000
+      - DATABASE_PASSWORD=Very0#ArrrdT0gue$sPAS$worD531
     ports:
       - "5000:5000"
     networks:
@@ -17,12 +18,8 @@
     image: nginx:latest
     container_name: nginx
     ports:
-      - published: 80
-        target: 80
-        mode: host
-      - published: 443
-        target: 443
-        mode: host
+      - "80:80"
+      - "443:443" 
     depends_on:
       - app
     volumes:
@@ -34,6 +31,3 @@
 networks:
   app_network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: "192.168.1.0/24"

@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.0, )"
@@ -98,6 +102,10 @@
             "Otp.NET": {
               "target": "Package",
               "version": "[1.4.0, )"
+            },
+            "SQLitePCLRaw.bundle_e_sqlcipher": {
+              "target": "Package",
+              "version": "[2.1.10, )"
             },
             "SixLabors.ImageSharp": {
               "target": "Package",

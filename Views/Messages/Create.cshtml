@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            <label for="image" class="form-label">Dodaj obraz (opcjonalne, max 20 MB)</label>
+            <label for="image" class="form-label">Dodaj obraz (opcjonalne, max 5 MB)</label>
             <input type="file" id="image" name="image" class="form-input" accept="image/png, image/jpeg" />
         </div>
 
@@ -86,8 +86,8 @@
 
     document.getElementById('image').addEventListener('change', function () {
         const file = this.files[0];
-        if (file && file.size > 20 * 1024 * 1024) {
-            alert('Rozmiar pliku nie może przekraczać 20 MB.');
+        if (file && file.size > 5 * 1024 * 1024) {
+            alert('Rozmiar pliku nie może przekraczać 5 MB.');
             this.value = '';
         }
     });

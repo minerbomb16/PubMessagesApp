@@ -83,7 +83,7 @@ namespace PubMessagesApp.Controllers
                     return View();
                 }
 
-                if (image.Length > 20 * 1024 * 1024)
+                if (image.Length > 5 * 1024 * 1024)
                 {
                     ModelState.AddModelError("Image", "Rozmiar obrazu nie może przekraczać 20 MB.");
                     return View();
@@ -136,6 +136,18 @@ namespace PubMessagesApp.Controllers
                 }
             }
 
+            // Pobranie identyfikatora sesji z ciasteczka
+            if (!HttpContext.Request.Cookies.TryGetValue("SessionId", out var sessionId) || string.IsNullOrEmpty(sessionId))
+            {
+                return Unauthorized("Sesja nieprawidłowa lub wygasła.");
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            if (user == null || user.SessionId != sessionId)
+            {
+                return Unauthorized("Nieprawidłowe ciasteczko sesji.");
+            }
+
             var message = new Message
             {
                 Email = User.Identity.Name,
@@ -147,18 +159,24 @@ namespace PubMessagesApp.Controllers
 
             if (!string.IsNullOrEmpty(signMessagePassword))
             {
-                var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-                if (user == null || string.IsNullOrEmpty(user.PrivateKey))
+                if (user == null || string.IsNullOrEmpty(user.EncryptedPrivateKey))
                 {
                     return BadRequest("Nie znaleziono użytkownika lub brak klucza prywatnego.");
                 }
 
-                using (var rsa = RSA.Create())
+                try
                 {
-                    rsa.ImportRSAPrivateKey(Convert.FromBase64String(user.PrivateKey), out _);
+                    var privateKeyBytes = user.DecryptPrivateKey(signMessagePassword);
+                    using var rsa = RSA.Create();
+                    rsa.ImportRSAPrivateKey(privateKeyBytes, out _);
                     var messageBytes = Encoding.UTF8.GetBytes(sanitizedText);
                     var signature = rsa.SignData(messageBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
                     message.Signature = Convert.ToBase64String(signature);
+                }
+                catch (CryptographicException)
+                {
+                    ModelState.AddModelError("signMessagePassword", "Nieprawidłowe hasło do podpisania wiadomości.");
+                    return View();
                 }
             }
 

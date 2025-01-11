@@ -31,11 +31,6 @@ namespace PubMessagesApp.Controllers
 
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            Console.WriteLine("Przesłane dane formularza:");
-            Console.WriteLine($"Email: {model.Email}");
-            Console.WriteLine($"Password: {model.Password}");
-            Console.WriteLine($"UserIp: {model.UserIp}");
-
             if (!ModelState.IsValid) return View(model);
 
             const int maxAttempts = 5;
@@ -46,81 +41,40 @@ namespace PubMessagesApp.Controllers
 
             var user = await _userManager.FindByEmailAsync(model.Email);
             var ipAddress = !string.IsNullOrEmpty(model.UserIp) ? model.UserIp : "Unknown";
-
-            Console.WriteLine($"Rzeczywisty adres IP klienta: {ipAddress}");
-
             var timestamp = DateTime.Now;
             bool loginSuccess = false;
-
-            //ipAddress = "	172.18.0.1"; // Adres IP do testów
-            //ipAddress = "1.1.1.1";
-
             string dbPath = Path.Combine(_env.ContentRootPath, "Data", "country.mmdb");
             string location = "Unknown";
 
             try
             {
-                Console.WriteLine("==============================================================");
-                Console.WriteLine("Rozpoczęto mapowanie adresu IP na lokalizację");
-                Console.WriteLine($"Ścieżka do bazy danych: {dbPath}");
-                Console.WriteLine($"Adres IP: {ipAddress}");
-
                 if (!System.IO.File.Exists(dbPath))
                 {
-                    Console.WriteLine("Baza danych nie istnieje na podanej ścieżce.");
                     throw new FileNotFoundException("Plik country.mmdb nie został znaleziony.", dbPath);
                 }
 
                 if (!IPAddress.TryParse(ipAddress, out IPAddress ip))
                 {
-                    Console.WriteLine($"Nieprawidłowy format adresu IP: {ipAddress}");
                     throw new FormatException("Adres IP ma nieprawidłowy format.");
                 }
 
                 using (var reader = new MaxMind.Db.Reader(dbPath))
                 {
-                    Console.WriteLine("Baza danych została poprawnie załadowana.");
-
-                    // Znajdź dane dla adresu IP
                     var result = reader.Find<dynamic>(ip);
-
                     if (result != null)
                     {
-                        Console.WriteLine("Dane dla adresu IP zostały znalezione.");
-
-                        // Wyciąganie danych z dynamicznej struktury
                         string countryCode = result["country"] ?? "Unknown";
                         string countryName = result["country_name"] ?? "Unknown";
                         string continentCode = result["continent"] ?? "Unknown";
                         string continentName = result["continent_name"] ?? "Unknown";
-
-                        Console.WriteLine($"Kod kraju: {countryCode}");
-                        Console.WriteLine($"Nazwa kraju: {countryName}");
-                        Console.WriteLine($"Kod kontynentu: {continentCode}");
-                        Console.WriteLine($"Nazwa kontynentu: {continentName}");
-
-                        // Zbudowanie pełnej lokalizacji
                         location = $"{countryName}, {continentName}";
-                    }
-                    else
-                    {
-                        Console.WriteLine("Adres IP nie został znaleziony w bazie.");
                     }
                 }
             }
             catch (Exception ex)
             {
                 location = "Unknown";
-
-                Console.WriteLine("==============================================================");
-                Console.WriteLine("Wystąpił błąd podczas mapowania adresu IP na lokalizację:");
-                Console.WriteLine($"Błąd: {ex.Message}");
-                Console.WriteLine($"Szczegóły: {ex.StackTrace}");
-                Console.WriteLine("==============================================================");
             }
-
-            Console.WriteLine($"Zakończono mapowanie. Wynik lokalizacji: {location}");
-            Console.WriteLine("==============================================================");
 
             if (user != null)
             {
@@ -148,6 +102,19 @@ namespace PubMessagesApp.Controllers
 
                     if (result.Succeeded)
                     {
+                        // Generowanie losowego identyfikatora sesji
+                        user.SessionId = Guid.NewGuid().ToString();
+                        await _userManager.UpdateAsync(user);
+
+                        // Zapisanie identyfikatora sesji w ciasteczku
+                        HttpContext.Response.Cookies.Append("SessionId", user.SessionId, new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true,
+                            SameSite = SameSiteMode.Strict,
+                            Expires = DateTime.UtcNow.AddHours(1) // Ważność ciasteczka
+                        });
+
                         await _userManager.ResetAccessFailedCountAsync(user);
                         return RedirectToAction("Index", "Messages");
                     }
@@ -215,7 +182,8 @@ namespace PubMessagesApp.Controllers
             }
 
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            user.GenerateKeys();
+            user.GenerateKeys(model.Password); // Tworzenie kluczy RSA z szyfrowaniem klucza prywatnego
+
             var result = await _userManager.CreateAsync(user, model.Password);
 
             if (result.Succeeded)
@@ -235,6 +203,14 @@ namespace PubMessagesApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                user.SessionId = null;
+                await _userManager.UpdateAsync(user);
+            }
+
+            HttpContext.Response.Cookies.Delete("SessionId");
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Messages");
         }
