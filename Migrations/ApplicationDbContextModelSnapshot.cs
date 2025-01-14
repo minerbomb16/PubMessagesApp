@@ -167,6 +167,12 @@ namespace PubMessagesApp.Migrations
                     b.Property<string>("EncryptedPrivateKey")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("GoogleAuthenticatorSecret")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsGoogleAuthenticatorConfigured")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
 

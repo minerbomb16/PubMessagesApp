@@ -103,6 +103,10 @@
               "target": "Package",
               "version": "[1.4.0, )"
             },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "SQLitePCLRaw.bundle_e_sqlcipher": {
               "target": "Package",
               "version": "[2.1.10, )"
@@ -110,6 +114,22 @@
             "SixLabors.ImageSharp": {
               "target": "Package",
               "version": "[3.1.6, )"
+            },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[3.116.1, )"
+            },
+            "SkiaSharp.NativeAssets.Linux": {
+              "target": "Package",
+              "version": "[2.88.3, )"
+            },
+            "SkiaSharp.QrCode": {
+              "target": "Package",
+              "version": "[0.7.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

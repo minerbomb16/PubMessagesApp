@@ -1,0 +1,9 @@
+﻿@model string
+
+<form asp-action="VerifyGoogleAuthenticator" method="post">
+    <div>
+        <label for="code">Wprowadź kod Google Authenticator:</label>
+        <input type="text" id="code" name="code" required />
+    </div>
+    <button type="submit">Zweryfikuj</button>
+</form>

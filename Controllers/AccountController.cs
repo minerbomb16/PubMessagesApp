@@ -7,6 +7,13 @@ using MaxMind.GeoIP2;
 using Microsoft.AspNetCore.Hosting;
 using System.Net;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
+using OtpNet;
+using System.Security.Cryptography;
+using System.Text;
+using QRCoder;
+using System.Drawing;
+
 
 namespace PubMessagesApp.Controllers
 {
@@ -36,7 +43,6 @@ namespace PubMessagesApp.Controllers
             const int maxAttempts = 5;
             const int lockoutMinutes = 5;
 
-            // Opóźnienie 1 sekundy (anty-bruteforce)
             await Task.Delay(1000);
 
             var user = await _userManager.FindByEmailAsync(model.Email);
@@ -88,7 +94,7 @@ namespace PubMessagesApp.Controllers
                 }
                 else
                 {
-                    var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, lockoutOnFailure: false);
+                    var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, lockoutOnFailure: false);
                     var loginAttempt = new LoginAttempt
                     {
                         Username = model.Email,
@@ -99,24 +105,17 @@ namespace PubMessagesApp.Controllers
                     };
                     _context.LoginAttempts.Add(loginAttempt);
                     await _context.SaveChangesAsync();
-
                     if (result.Succeeded)
                     {
-                        // Generowanie losowego identyfikatora sesji
-                        user.SessionId = Guid.NewGuid().ToString();
-                        await _userManager.UpdateAsync(user);
-
-                        // Zapisanie identyfikatora sesji w ciasteczku
-                        HttpContext.Response.Cookies.Append("SessionId", user.SessionId, new CookieOptions
-                        {
-                            HttpOnly = true,
-                            Secure = true,
-                            SameSite = SameSiteMode.Strict,
-                            Expires = DateTime.UtcNow.AddHours(1) // Ważność ciasteczka
-                        });
-
                         await _userManager.ResetAccessFailedCountAsync(user);
-                        return RedirectToAction("Index", "Messages");
+                        TempData["UserPassword"] = model.Password;
+                        TempData["UserId"] = user.Id;
+                        if (!user.IsGoogleAuthenticatorConfigured)
+                        {
+                            return RedirectToAction("GoogleAuthenticatorSetup", "Account");
+                        }
+
+                        return RedirectToAction("VerifyGoogleAuthenticator", "Account");
                     }
                     else
                     {
@@ -124,7 +123,8 @@ namespace PubMessagesApp.Controllers
                         await _userManager.AccessFailedAsync(user);
                     }
                 }
-            } else
+            }
+            else
             {
                 ViewData["Error"] = "Nieprawidłowe dane logowania.";
                 return View(model);
@@ -174,29 +174,81 @@ namespace PubMessagesApp.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var userExists = await _userManager.FindByEmailAsync(model.Email);
-            if (userExists != null)
+            var existingUser = await _userManager.FindByEmailAsync(model.Email);
+
+            // Jeśli użytkownik istnieje, ale e-mail nie został potwierdzony, usuń go
+            if (existingUser != null && !await _userManager.IsEmailConfirmedAsync(existingUser))
+            {
+                var result = await _userManager.DeleteAsync(existingUser);
+                if (!result.Succeeded)
+                {
+                    return View(model);
+                }
+            }
+            else if (existingUser != null)
             {
                 ViewData["Error"] = "Konto na podany adres email już istnieje.";
                 return View(model);
             }
 
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            user.GenerateKeys(model.Password); // Tworzenie kluczy RSA z szyfrowaniem klucza prywatnego
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email, IsGoogleAuthenticatorConfigured = false };
+            user.GenerateKeys(model.Password);
+            var createResult = await _userManager.CreateAsync(user, model.Password);
+            user.TwoFactorEnabled = false;
+            await _userManager.UpdateAsync(user);
 
-            var result = await _userManager.CreateAsync(user, model.Password);
-
-            if (result.Succeeded)
+            if (createResult.Succeeded)
             {
-                return RedirectToAction("Login", "Account");
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var encodedToken = System.Net.WebUtility.UrlEncode(token);
+                var confirmationLink = Url.Action(nameof(ConfirmEmail), "Account",
+                    new { userId = user.Id, token = encodedToken }, Request.Scheme);
+
+                TempData["Email"] = model.Email;
+                TempData["ConfirmationLink"] = confirmationLink;
+
+                return RedirectToAction(nameof(RegistrationConfirmation));
             }
 
-            foreach (var error in result.Errors)
+            foreach (var error in createResult.Errors)
             {
                 ModelState.AddModelError(string.Empty, error.Description);
             }
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult RegistrationConfirmation()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
+            {
+                return BadRequest("Nieprawidłowe dane potwierdzające: brak userId lub token.");
+            }
+
+            // Dekodowanie tokenu URL
+            token = System.Net.WebUtility.UrlDecode(token);
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound("Nie znaleziono użytkownika.");
+            }
+
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            if (result.Succeeded)
+            {
+                return View("EmailConfirmed");
+            }
+
+            return BadRequest("Potwierdzenie e-maila nie powiodło się.");
         }
 
         [HttpPost]
@@ -238,10 +290,162 @@ namespace PubMessagesApp.Controllers
                 return Json(new { success = false, error = "Adres IP jest wymagany." });
             }
 
-            HttpContext.Items["UserIp"] = userIp; // Przechowywanie IP w kontekście żądania
+            HttpContext.Items["UserIp"] = userIp;
             Console.WriteLine($"Przypisano adres IP: {userIp}");
 
             return Json(new { success = true });
         }
+
+        [HttpGet]
+        public async Task<IActionResult> VerifyGoogleAuthenticator()
+        {
+            var userId = TempData["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
+            {
+                TempData["Error"] = "Brak użytkownika do weryfikacji.";
+                return RedirectToAction("Login");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                TempData["Error"] = "Nie znaleziono użytkownika.";
+                return RedirectToAction("Login");
+            }
+            TempData["UserId"] = userId;
+            return View("VerifyGoogleAuthenticator");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyGoogleAuthenticator(string code)
+        {
+            var userId = TempData["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
+            {
+                TempData["Error"] = "Brak użytkownika do weryfikacji.";
+                return RedirectToAction("Login");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                TempData["Error"] = "Nie znaleziono użytkownika.";
+                return RedirectToAction("Login");
+            }
+
+            if (string.IsNullOrWhiteSpace(user.GoogleAuthenticatorSecret))
+            {
+                TempData["Error"] = "Google Authenticator nie został skonfigurowany.";
+                return RedirectToAction("GoogleAuthenticatorSetup");
+            }
+
+            // Decrypt secret
+            var password = TempData["UserPassword"]?.ToString();
+            if (string.IsNullOrEmpty(password))
+            {
+                TempData["Error"] = "Hasło użytkownika jest wymagane.";
+                return RedirectToAction("Login");
+            }
+
+            var decryptedSecret = user.DecryptGoogleAuthenticatorSecret(password);
+
+            var secretKey = Base32Encoding.ToBytes(decryptedSecret);
+            var totp = new Totp(secretKey);
+            if (!totp.VerifyTotp(code, out _))
+            {
+                ModelState.AddModelError(string.Empty, "Nieprawidłowy kod.");
+                TempData["UserPassword"] = password;
+                TempData["UserId"] = userId;
+                return View("VerifyGoogleAuthenticator");
+            }
+
+            // Successful verification
+            user.IsGoogleAuthenticatorConfigured = true;
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            user.SessionId = Guid.NewGuid().ToString();
+            await _userManager.UpdateAsync(user);
+
+            HttpContext.Response.Cookies.Append("SessionId", user.SessionId, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = DateTime.UtcNow.AddHours(1)
+            });
+
+            return RedirectToAction("Index", "Messages");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GoogleAuthenticatorSetup()
+        {
+            var userId = TempData["UserId"]?.ToString();
+            if (string.IsNullOrEmpty(userId))
+            {
+                TempData["Error"] = "Brak użytkownika do konfiguracji.";
+                return RedirectToAction("Login");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                TempData["Error"] = "Nie znaleziono użytkownika.";
+                return RedirectToAction("Login");
+            }
+
+            var password = TempData["UserPassword"] as string;
+            if (string.IsNullOrEmpty(password))
+            {
+                TempData["Error"] = "Hasło użytkownika jest wymagane.";
+                return RedirectToAction("Login");
+            }
+
+            user.GenerateGoogleAuthenticatorSecret(password);
+            await _userManager.UpdateAsync(user);
+
+            var decryptedSecret = user.DecryptGoogleAuthenticatorSecret(password);
+            var qrCodeUri = $"otpauth://totp/PubMessagesApp:{user.Email}?secret={decryptedSecret}&issuer=PubMessagesApp";
+            TempData["QrCodeUri"] = qrCodeUri;
+            TempData["ManualCode"] = decryptedSecret;
+            TempData["UserPassword"] = password;
+            TempData["UserId"] = userId;
+            return View("SetupGoogleAuthenticator");
+        }
+
+
+        public IActionResult GenerateQrCode(string qrCodeUri)
+        {
+            try
+            {
+                using var qrGenerator = new QRCodeGenerator();
+                using var qrCodeData = qrGenerator.CreateQrCode(qrCodeUri, QRCodeGenerator.ECCLevel.Q);
+                var qrCode = new BitmapByteQRCode(qrCodeData);
+                var qrCodeImage = qrCode.GetGraphic(20);
+
+                // Konwertuj bajty obrazu na Bitmap i przeskaluj do 500x500
+                using var ms = new MemoryStream(qrCodeImage);
+                using var originalBitmap = new Bitmap(ms);
+                using var resizedBitmap = new Bitmap(originalBitmap, new Size(500, 500));
+
+                using var outputStream = new MemoryStream();
+                resizedBitmap.Save(outputStream, System.Drawing.Imaging.ImageFormat.Png);
+                return File(outputStream.ToArray(), "image/png");
+            }
+            catch (Exception ex)
+            {
+                // Jeśli wystąpi błąd, wyświetl zwykły kod tekstowy
+                Console.WriteLine($"Błąd generowania kodu QR: {ex.Message}");
+                return Content("Unable to generate QR code. Use this manual code: " + ExtractManualCode(qrCodeUri), "text/plain");
+            }
+        }
+
+        // Metoda pomocnicza do wyodrębniania kodu ręcznego z URI
+        private string ExtractManualCode(string qrCodeUri)
+        {
+            var query = new Uri(qrCodeUri).Query;
+            var queryParameters = System.Web.HttpUtility.ParseQueryString(query);
+            return queryParameters["secret"] ?? "Unknown";
+        }
+
     }
 }

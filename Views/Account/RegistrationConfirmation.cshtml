@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Potwierdzenie rejestracji";
+    var email = TempData["Email"]?.ToString();
+    var confirmationLink = TempData["ConfirmationLink"]?.ToString();
+    var nonce = Context.Items["CSPNonce"];
+}
+
+<h2>Potwierdzenie rejestracji</h2>
+<p>Dziękujemy za rejestrację. Wysłaliśmy wiadomość e-mail na podany adres. Proszę kliknąć w link w wiadomości, aby potwierdzić rejestrację.</p>
+
+<script nonce="@nonce">
+    const email = "@email";
+    const confirmationLink = "@Html.Raw(confirmationLink)";
+
+    if (email && confirmationLink) {
+        console.log("SYMULOWANA WIADOMOŚĆ E-MAIL:");
+        console.log(`Do: ${email}`);
+        console.log("Temat: Potwierdzenie rejestracji");
+        console.log(`Treść: Aby potwierdzić rejestrację, kliknij w poniższy link:\n${confirmationLink}`);
+    }
+</script>
+

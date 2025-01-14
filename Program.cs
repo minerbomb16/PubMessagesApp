@@ -8,7 +8,8 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
+builder.Services.AddSession();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -19,6 +20,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
+    options.SignIn.RequireConfirmedEmail = true;
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
     options.Password.RequireNonAlphanumeric = true;
@@ -65,16 +67,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
 // Dodanie polityki Content-Security-Policy (CSP)
 app.Use(async (context, next) =>
 {
-    Console.WriteLine("Nag³ówki proxy:");
-    Console.WriteLine($"X-Forwarded-For: {context.Request.Headers["X-Forwarded-For"]}");
-    Console.WriteLine($"X-Real-IP: {context.Request.Headers["X-Real-IP"]}");
-
     var nonce = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
     context.Items["CSPNonce"] = nonce;
 

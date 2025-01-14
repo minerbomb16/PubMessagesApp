@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PubMessagesApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e616475753306ec057955f29f5e3b6077d6672f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ab0d8eaa095d465d197e7984fcf1a60abc1978c")]
 [assembly: System.Reflection.AssemblyProductAttribute("PubMessagesApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PubMessagesApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

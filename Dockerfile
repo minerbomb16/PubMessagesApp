@@ -1,10 +1,9 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+﻿# Użycie obrazu bazowego .NET SDK
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-# Kopiowanie pliku rozwiązania (.sln)
-COPY PubMessagesApp.sln ./ 
-
-# Kopiowanie folderu aplikacji
+# Kopiowanie plików projektu
+COPY PubMessagesApp.sln ./
 COPY ./ ./PubMessagesApp
 
 # Przywracanie zależności
@@ -20,6 +19,8 @@ RUN dotnet publish -c Release -o /app/publish
 # Użycie obrazu runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
+
+# Kopiowanie aplikacji z etapu build
 COPY --from=build /app/publish .
 
 # Ustawienie zmiennej środowiskowej dla SQLite Password

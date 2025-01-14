@@ -1,5 +1,7 @@
 ﻿using System.Security.Cryptography;
+using System.Text;
 using Microsoft.AspNetCore.Identity;
+using OtpNet;
 
 namespace PubMessagesApp.Models
 {
@@ -9,7 +11,35 @@ namespace PubMessagesApp.Models
         public string? EncryptedPrivateKey { get; set; }
         public string? Salt { get; set; }
         public string? SessionId { get; set; }
+        public string? GoogleAuthenticatorSecret { get; set; }
+        public bool IsGoogleAuthenticatorConfigured { get; set; }
 
+        public void GenerateGoogleAuthenticatorSecret(string password)
+        {
+            if (string.IsNullOrEmpty(Salt))
+                throw new InvalidOperationException("Salt is not set.");
+
+            // Wygeneruj losowy klucz
+            var secret = Base32Encoding.ToString(RandomNumberGenerator.GetBytes(20)); // Base32 zamiast Base64
+
+            // Zaszyfruj klucz tajny
+            var key = GenerateEncryptionKey(password, Salt);
+            GoogleAuthenticatorSecret = Convert.ToBase64String(AesEncrypt(Encoding.UTF8.GetBytes(secret), key));
+        }
+
+        public string DecryptGoogleAuthenticatorSecret(string password)
+        {
+            if (string.IsNullOrEmpty(GoogleAuthenticatorSecret))
+                throw new InvalidOperationException("Google Authenticator Secret is empty.");
+
+            if (string.IsNullOrEmpty(Salt))
+                throw new InvalidOperationException("Salt is not set.");
+
+            var key = GenerateEncryptionKey(password, Salt);
+            var encryptedSecret = Convert.FromBase64String(GoogleAuthenticatorSecret);
+            var decryptedSecret = Encoding.UTF8.GetString(AesDecrypt(encryptedSecret, key));
+            return decryptedSecret;
+        }
 
         public void GenerateKeys(string password)
         {
