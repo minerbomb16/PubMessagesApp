@@ -12,13 +12,11 @@
         <div class="form-group">
             <label for="text-editor" class="form-label">Treść wiadomości</label>
 
-            <!-- Pasek narzędzi -->
             <div class="text-editor-toolbar">
                 <button type="button" id="boldButton" class="format-button"><b>B</b></button>
                 <button type="button" id="italicButton" class="format-button"><i>I</i></button>
             </div>
 
-            <!-- Edytor z contenteditable -->
             <div id="text-editor" class="form-input" contenteditable="true" placeholder="Wpisz treść wiadomości..."></div>
             <input type="hidden" id="text" name="text" />
             <p id="error-message" class="no-messages">Treść wiadomości jest wymagana.</p>
@@ -47,42 +45,57 @@
         document.execCommand('italic');
     });
 
-    document.getElementById('messageForm').addEventListener('submit', async function (event) {
-        event.preventDefault(); // Zapobieganie przeładowaniu strony
-
-        const editorContent = document.getElementById('text-editor').innerHTML.trim();
-        const errorMessage = document.getElementById('error-message');
-        const signMessagePassword = document.getElementById('signMessagePassword').value;
-
-        if (!editorContent || editorContent === "<br>") {
-            errorMessage.style.display = "block";
-            return;
-        } else {
-            errorMessage.style.display = "none";
-            document.getElementById('text').value = editorContent;
+    document.getElementById('text-editor').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.execCommand('insertHTML', false, '<br><br>');
         }
+    });
 
-        if (signMessagePassword) {
-            try {
-                const response = await fetch('/Messages/ValidatePassword', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ password: signMessagePassword })
-                });
+    document.getElementById('messageForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
 
-                const result = await response.json();
-                if (!result.success) {
-                    alert('Nieprawidłowe hasło. Spróbuj ponownie.');
-                    document.getElementById('signMessagePassword').value = '';
-                    return;
-                }
-            } catch (error) {
-                console.error('Błąd podczas walidacji hasła:', error);
+    const editorContent = document.getElementById('text-editor').innerHTML.trim();
+    const errorMessage = document.getElementById('error-message');
+    const signMessagePassword = document.getElementById('signMessagePassword').value;
+
+    if (!editorContent || editorContent === "<br>") {
+        errorMessage.style.display = "block";
+        return;
+    } else {
+        errorMessage.style.display = "none";
+        document.getElementById('text').value = editorContent;
+    }
+
+    if (signMessagePassword) {
+        try {
+            const csrfToken = document.querySelector('input[name="__RequestVerificationToken"]').value;
+            const response = await fetch('/Messages/ValidatePassword', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'RequestVerificationToken': csrfToken },
+                body: JSON.stringify({ password: signMessagePassword })
+            });
+
+            if (!response.ok) {
+                throw new Error('Błąd podczas walidacji hasła. Kod odpowiedzi: ' + response.status);
+            }
+
+            const result = await response.json();
+            if (!result.success) {
+                alert(result.message || 'Nieprawidłowe hasło. Spróbuj ponownie.');
+                document.getElementById('signMessagePassword').value = '';
                 return;
             }
+        } catch (error) {
+            console.error('Błąd podczas walidacji hasła:', error);
+            alert('Wystąpił problem z walidacją hasła. Spróbuj ponownie później.');
+            return;
         }
-        event.target.submit();
-    });
+    }
+
+    event.target.submit();
+});
+
 
     document.getElementById('image').addEventListener('change', function () {
         const file = this.files[0];

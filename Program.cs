@@ -1,19 +1,31 @@
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PubMessagesApp.Data;
 using PubMessagesApp.Models;
-using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews().AddSessionStateTempDataProvider();
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5000);
+});
+
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(@"/app/dataprotection-keys"))
+    .SetApplicationName("PubMessagesApp");
+
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+}).AddSessionStateTempDataProvider();
 builder.Services.AddSession();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    var password = Environment.GetEnvironmentVariable("DATABASE_PASSWORD") ?? "Very0#ArrrdT0gue$sPAS$worD531";
+    var password = Environment.GetEnvironmentVariable("DATABASE_PASSWORD");
     var connectionString = $"Data Source=PubMessagesDb.sqlite;Password={password};";
     options.UseSqlite(connectionString);
 });
@@ -37,21 +49,24 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.Cookie.HttpOnly = true; // Zapobiega dostêpowi do ciasteczek przez JavaScript
-    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Wymaga HTTPS
-    options.Cookie.SameSite = SameSiteMode.Strict; // Ogranicza wysy³anie ciasteczek tylko do tej samej domeny
-    options.Cookie.Name = "AuthCookie"; // Dostosowana nazwa ciasteczka
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(60); // Czas ¿ycia ciasteczka
-    options.SlidingExpiration = true; // Odœwie¿a czas ¿ycia ciasteczka po aktywnoœci
-    options.LoginPath = "/Account/Login"; // Œcie¿ka do logowania
-    options.LogoutPath = "/Account/Logout"; // Œcie¿ka do wylogowania
-    options.AccessDeniedPath = "/Account/AccessDenied"; // Œcie¿ka do b³êdu dostêpu
+    options.Cookie.HttpOnly = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.Strict;
+    options.Cookie.Name = "AuthCookie";
+    options.Cookie.IsEssential = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    options.SlidingExpiration = true;
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
 var app = builder.Build();
 
-// Dodaj middleware do obs³ugi nag³ówków przesy³anych przez proxy
-app.UseForwardedHeaders();
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 if (app.Environment.IsDevelopment())
 {
@@ -63,7 +78,6 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -71,7 +85,6 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Dodanie polityki Content-Security-Policy (CSP)
 app.Use(async (context, next) =>
 {
     var nonce = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
@@ -81,9 +94,10 @@ app.Use(async (context, next) =>
         "default-src 'self'; " +
         "script-src 'self' https://cdnjs.cloudflare.com https://code.jquery.com https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com 'nonce-" + nonce + "'; " +
         "style-src 'self' https://stackpath.bootstrapcdn.com 'nonce-" + nonce + "'; " +
-        "img-src 'self' data:; " + // Zezwala na obrazy z `data:`
-        "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://api.ipify.org; " + // Zezwolenie na po³¹czenia z API ipify
-        "frame-src 'self';");
+        "img-src 'self' data:; " +
+        "connect-src 'self' http://localhost:* https://localhost:* ws://localhost:* wss://localhost:* https://api.ipify.org; " +
+        "frame-ancestors 'self'; " +
+        "form-action 'self';");
 
     context.Response.OnStarting(() =>
     {
@@ -94,12 +108,10 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// Mapowanie tras
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Messages}/{action=Index}/{id?}");
 
-// Automatyczne migrowanie bazy danych
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -116,18 +128,16 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"B³¹d podczas migracji: {ex.Message}");
     }
 
-    // Inicjalizacja szyfrowania bazy danych
     using (var connection = context.Database.GetDbConnection())
     {
         connection.Open();
         using (var command = connection.CreateCommand())
         {
-            var password = Environment.GetEnvironmentVariable("DATABASE_PASSWORD") ?? "Very0#ArrrdT0gue$sPAS$worD531";
+            var password = Environment.GetEnvironmentVariable("DATABASE_PASSWORD");
             command.CommandText = $"PRAGMA key = '{password}';";
             command.ExecuteNonQuery();
         }
     }
 }
 
-// Uruchomienie aplikacji
 app.Run();

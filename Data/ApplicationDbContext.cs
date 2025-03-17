@@ -6,7 +6,7 @@ namespace PubMessagesApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<LoginAttempt> LoginAttempts { get; set; } // Nowa tabela
+        public DbSet<LoginAttempt> LoginAttempts { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

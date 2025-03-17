@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Setup Google Authenticator";
+}
+
+<h2>Skonfiguruj Google Authenticator</h2>
+
+<p>Wpisz podany kod w aplikacji:</p>
+<p>
+    <strong>
+        @System.Text.Encodings.Web.HtmlEncoder.Default.Encode(Model)
+    </strong>
+</p>
+
+<form method="get" action="@Url.Action("VerifyGoogleAuthenticator", "Authenticator")">
+    <button type="submit">Dalej</button>
+</form>
+

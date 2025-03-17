@@ -2,16 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using PubMessagesApp.Data;
 using PubMessagesApp.Models;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
 using Ganss.Xss;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
-using AngleSharp.Css.Dom;
 using Microsoft.AspNetCore.Identity;
 
 namespace PubMessagesApp.Controllers
@@ -35,7 +30,11 @@ namespace PubMessagesApp.Controllers
                 .ToList();
 
             var sanitizer = new HtmlSanitizer();
-            sanitizer.AllowedAttributes.Remove("style");
+            sanitizer.AllowedTags.Clear();
+            sanitizer.AllowedAttributes.Clear();
+            sanitizer.AllowedTags.Add("b");
+            sanitizer.AllowedTags.Add("i");
+            sanitizer.AllowedTags.Add("br");
 
             foreach (var message in messages)
             {
@@ -43,11 +42,7 @@ namespace PubMessagesApp.Controllers
                 message.IsSignatureValid = VerifySignature(message);
             }
 
-            if (skip > 0)
-            {
-                return PartialView("_MessageListPartial", messages);
-            }
-
+            if (skip > 0)  return PartialView("_MessageListPartial", messages);
             return View(messages);
         }
 
@@ -71,7 +66,6 @@ namespace PubMessagesApp.Controllers
 
             var sanitizer = new HtmlSanitizer();
             string sanitizedText = sanitizer.Sanitize(text);
-
             byte[] imageData = null;
             string imageMimeType = null;
 
@@ -85,7 +79,7 @@ namespace PubMessagesApp.Controllers
 
                 if (image.Length > 5 * 1024 * 1024)
                 {
-                    ModelState.AddModelError("Image", "Rozmiar obrazu nie może przekraczać 20 MB.");
+                    ModelState.AddModelError("Image", "Rozmiar obrazu nie może przekraczać 5 MB.");
                     return View();
                 }
 
@@ -95,6 +89,12 @@ namespace PubMessagesApp.Controllers
                     {
                         await image.CopyToAsync(memoryStream);
                         memoryStream.Position = 0;
+
+                        if (!FileTypeValidator.IsPng(memoryStream.ToArray()) && !FileTypeValidator.IsJpeg(memoryStream.ToArray()))
+                        {
+                            ModelState.AddModelError("Image", "Przesłany plik nie jest prawidłowym obrazem.");
+                            return View();
+                        }
 
                         using (var img = Image.Load<Rgba32>(memoryStream))
                         {
@@ -136,17 +136,10 @@ namespace PubMessagesApp.Controllers
                 }
             }
 
-            // Pobranie identyfikatora sesji z ciasteczka
-            if (!HttpContext.Request.Cookies.TryGetValue("SessionId", out var sessionId) || string.IsNullOrEmpty(sessionId))
-            {
-                return Unauthorized("Sesja nieprawidłowa lub wygasła.");
-            }
+            if (!HttpContext.Request.Cookies.TryGetValue("SessionId", out var sessionId) || string.IsNullOrEmpty(sessionId))return Unauthorized("Sesja nieprawidłowa lub wygasła.");
 
             var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-            if (user == null || user.SessionId != sessionId)
-            {
-                return Unauthorized("Nieprawidłowe ciasteczko sesji.");
-            }
+            if (user == null || user.SessionId != sessionId) return Unauthorized("Nieprawidłowe ciasteczko.");
 
             var message = new Message
             {
@@ -159,10 +152,7 @@ namespace PubMessagesApp.Controllers
 
             if (!string.IsNullOrEmpty(signMessagePassword))
             {
-                if (user == null || string.IsNullOrEmpty(user.EncryptedPrivateKey))
-                {
-                    return BadRequest("Nie znaleziono użytkownika lub brak klucza prywatnego.");
-                }
+                if (user == null || string.IsNullOrEmpty(user.EncryptedPrivateKey)) return BadRequest("Nie brak użytkownika lub brak klucza prywatnego.");
 
                 try
                 {
@@ -170,12 +160,14 @@ namespace PubMessagesApp.Controllers
                     using var rsa = RSA.Create();
                     rsa.ImportRSAPrivateKey(privateKeyBytes, out _);
                     var messageBytes = Encoding.UTF8.GetBytes(sanitizedText);
-                    var signature = rsa.SignData(messageBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+                    using var sha256 = SHA256.Create();
+                    var messageHash = sha256.ComputeHash(messageBytes);
+                    var signature = rsa.SignData(messageHash, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
                     message.Signature = Convert.ToBase64String(signature);
                 }
                 catch (CryptographicException)
                 {
-                    ModelState.AddModelError("signMessagePassword", "Nieprawidłowe hasło do podpisania wiadomości.");
+                    ModelState.AddModelError("signMessagePassword", "Nieprawidłowe hasło.");
                     return View();
                 }
             }
@@ -198,38 +190,50 @@ namespace PubMessagesApp.Controllers
             {
                 rsa.ImportRSAPublicKey(Convert.FromBase64String(user.PublicKey), out _);
                 var messageBytes = Encoding.UTF8.GetBytes(message.Text);
+                using var sha256 = SHA256.Create();
+                var messageHash = sha256.ComputeHash(messageBytes);
                 var signatureBytes = Convert.FromBase64String(message.Signature);
-                return rsa.VerifyData(messageBytes, signatureBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+                return rsa.VerifyData(messageHash, signatureBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
             }
         }
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ValidatePassword([FromBody] ValidatePasswordRequest request)
         {
-            // Opóźnienie 1 sekundy
-            await Task.Delay(1000);
-
+            await AccountController.CreateDelay(1000);
             var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-            if (user == null)
-            {
-                return Json(new { success = false });
-            }
+            if (user == null) return Json(new { success = false });
 
             var passwordHasher = new PasswordHasher<ApplicationUser>();
             var result = passwordHasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
 
-            if (result == PasswordVerificationResult.Success)
-            {
-                return Json(new { success = true });
-            }
-
+            if (result == PasswordVerificationResult.Success) return Json(new { success = true });
             return Json(new { success = false });
         }
 
         public class ValidatePasswordRequest
         {
             public string Password { get; set; }
+        }
+    }
+
+    public static class FileTypeValidator
+    {
+        private static readonly byte[] JpegHeader = new byte[] { 0xFF, 0xD8, 0xFF };
+        private static readonly byte[] PngHeader = new byte[] { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
+
+        public static bool IsJpeg(byte[] fileContent)
+        {
+            if (fileContent == null || fileContent.Length < JpegHeader.Length) return false;
+            return fileContent[..JpegHeader.Length].SequenceEqual(JpegHeader);
+        }
+
+        public static bool IsPng(byte[] fileContent)
+        {
+            if (fileContent == null || fileContent.Length < PngHeader.Length) return false;
+            return fileContent[..PngHeader.Length].SequenceEqual(PngHeader);
         }
     }
 }

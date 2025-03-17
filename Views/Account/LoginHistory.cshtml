@@ -20,9 +20,9 @@
         {
             <tr>
                 <td>@(attempt.Success ? "✔️" : "❌")</td>
-                <td>@attempt.IpAddress</td>
-                <td>@attempt.Location</td>
-                <td>@attempt.Timestamp</td>
+                <td>@System.Text.Encodings.Web.HtmlEncoder.Default.Encode(attempt.IpAddress)</td>
+                <td>@System.Text.Encodings.Web.HtmlEncoder.Default.Encode(attempt.Location)</td>
+                <td>@attempt.Timestamp.ToString("dd.MM.yyyy  HH:mm:ss")</td>
             </tr>
         }
     </tbody>

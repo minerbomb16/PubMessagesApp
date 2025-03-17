@@ -1,0 +1,8 @@
+﻿<form asp-action="VerifyGoogleAuthenticator" method="post">
+    @Html.AntiForgeryToken()
+    <div>
+        <label for="code">Wprowadź kod Google Authenticator:</label>
+        <input type="text" id="code" name="code" maxlength="6" pattern="\d{6}" required />
+    </div>
+    <button type="submit">Zweryfikuj</button>
+</form>

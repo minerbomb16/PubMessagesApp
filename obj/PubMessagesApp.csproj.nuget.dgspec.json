@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\micha\\Desktop\\PubMessagesApp\\PubMessagesApp.csproj": {}
+    "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\PubMessagesApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\micha\\Desktop\\PubMessagesApp\\PubMessagesApp.csproj": {
+    "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\PubMessagesApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\PubMessagesApp.csproj",
+        "projectUniqueName": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\PubMessagesApp.csproj",
         "projectName": "PubMessagesApp",
-        "projectPath": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\PubMessagesApp.csproj",
+        "projectPath": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\PubMessagesApp.csproj",
         "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\obj\\",
+        "outputPath": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,6 +58,10 @@
             "MaxMind.GeoIP2": {
               "target": "Package",
               "version": "[5.2.0, )"
+            },
+            "Microsoft.AspNetCore.DataProtection.Extensions": {
+              "target": "Package",
+              "version": "[9.0.1, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",

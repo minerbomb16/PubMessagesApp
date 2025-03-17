@@ -1,18 +1,17 @@
 ﻿@model IEnumerable<PubMessagesApp.Models.Message>
 
 <div class="flex-container">
-    <!-- Lewy pasek menu -->
     <aside class="sidebar">
         <nav>
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
                 <a href="/Messages/Create" class="btn btn-light">Dodaj Wiadomość</a>
                 <a href="/Account/LoginHistory" class="btn btn-light">Historia logowań</a>
+                <a href="/PassChange/ChangePassword" class="btn btn-light">Zmień Hasło</a>
             }
         </nav>
     </aside>
 
-    <!-- Sekcja wiadomości -->
     <main class="main-content">
         <h1 class="messages-title">Wiadomości</h1>
         <div id="message-list">

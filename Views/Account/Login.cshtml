@@ -22,7 +22,7 @@
     @if (ViewData["Error"] != null)
     {
         <div class="alert alert-danger">
-            @ViewData["Error"]
+            @Html.Raw(System.Text.Encodings.Web.HtmlEncoder.Default.Encode(ViewData["Error"].ToString()))
         </div>
     }
 

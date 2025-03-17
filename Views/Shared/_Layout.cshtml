@@ -52,17 +52,10 @@
         </nav>
     </header>
     <div class="container">
-        <!-- Wywołanie RenderBody() zapewnia, że treść widoku zostanie załadowana tutaj -->
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - PubMessagesApp
-        </div>
-    </footer>
 
     @RenderSection("Scripts", required: false)
 </body>

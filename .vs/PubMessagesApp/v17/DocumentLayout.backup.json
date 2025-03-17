@@ -1,22 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\",
+  "WorkspaceRootPath": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\views\\account\\verifygoogleauthenticator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:views\\account\\verifygoogleauthenticator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\projekt\\pubmessagesapp\\dataprotection-keys\\key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:dataprotection-keys\\key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\views\\account\\setupgoogleauthenticator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:views\\account\\setupgoogleauthenticator.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\projekt\\pubmessagesapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|c:\\users\\micha\\desktop\\pubmessagesapp\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{1AC62C8C-F368-4379-9543-610D7AA83176}|PubMessagesApp.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,52 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VerifyGoogleAuthenticator.cshtml",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Account\\VerifyGoogleAuthenticator.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\VerifyGoogleAuthenticator.cshtml",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Account\\VerifyGoogleAuthenticator.cshtml",
-              "RelativeToolTip": "Views\\Account\\VerifyGoogleAuthenticator.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-14T20:04:28.442Z",
+              "Title": "key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\dataprotection-keys\\key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml",
+              "RelativeDocumentMoniker": "dataprotection-keys\\key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\dataprotection-keys\\key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml",
+              "RelativeToolTip": "dataprotection-keys\\key-e09f2452-5743-4c9a-abec-3219bfe69b93.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-01-27T20:52:07.001Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Dockerfile",
-              "RelativeDocumentMoniker": "Dockerfile",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Dockerfile",
-              "RelativeToolTip": "Dockerfile",
-              "ViewState": "AgIAAAYAAAAAAAAAAADwvxEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-01-13T22:37:22.444Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SetupGoogleAuthenticator.cshtml",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Account\\SetupGoogleAuthenticator.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\SetupGoogleAuthenticator.cshtml",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Views\\Account\\SetupGoogleAuthenticator.cshtml",
-              "RelativeToolTip": "Views\\Account\\SetupGoogleAuthenticator.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-13T22:14:15.845Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\micha\\Desktop\\PubMessagesApp\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\micha\\Desktop\\Projekt\\PubMessagesApp\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAJIBAAAAAAAAAAAAAJwBAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAgwGIAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T11:11:38.682Z",
+              "WhenOpened": "2025-01-27T20:11:26.069Z",
               "EditorCaption": ""
             }
           ]

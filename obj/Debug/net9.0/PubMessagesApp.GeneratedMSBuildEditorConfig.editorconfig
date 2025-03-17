@@ -9,85 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PubMessagesApp
 build_property.RootNamespace = PubMessagesApp
-build_property.ProjectDir = C:\Users\micha\Desktop\PubMessagesApp\
+build_property.ProjectDir = C:\Users\micha\Desktop\Projekt\PubMessagesApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\micha\Desktop\PubMessagesApp
+build_property.MSBuildProjectDirectory = C:\Users\micha\Desktop\Projekt\PubMessagesApp
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/EmailConfirmed.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFbWFpbENvbmZpcm1lZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/Lockout.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/Login.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/LoginHistory.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Account/LoginHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbkhpc3RvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/Register.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/RegistrationConfirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3RyYXRpb25Db25maXJtYXRpb24uY3NodG1s
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Authenticator/SetupGoogleAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxTZXR1cEdvb2dsZUF1dGhlbnRpY2F0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/SetupGoogleAuthenticator.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZXR1cEdvb2dsZUF1dGhlbnRpY2F0b3IuY3NodG1s
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Authenticator/VerifyChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxWZXJpZnlDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Account/VerifyGoogleAuthenticator.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlHb29nbGVBdXRoZW50aWNhdG9yLmNzaHRtbA==
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Authenticator/VerifyGoogleAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aGVudGljYXRvclxWZXJpZnlHb29nbGVBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Email/EmailConfirmed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxcRW1haWxDb25maXJtZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Email/RegistrationConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxcUmVnaXN0cmF0aW9uQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Messages/Create.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Messages/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Messages/Index.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Messages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Messages/_MessageListPartial.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Messages/_MessageListPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZXNcX01lc3NhZ2VMaXN0UGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Shared/Error.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/PassChange/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc0NoYW5nZVxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/_ViewImports.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/_ViewStart.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/micha/Desktop/PubMessagesApp/Views/Shared/_Layout.cshtml]
+[C:/Users/micha/Desktop/Projekt/PubMessagesApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-uvv0suk0io
