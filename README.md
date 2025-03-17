@@ -88,7 +88,7 @@
   - OpenSSL-generated SSL certificates used for secure communication
   - Server headers minimized (Nginx version hidden for security)
 
-### 2. Images
+### 3. Images
 - Registration:
 ![Registration](https://raw.githubusercontent.com/minerbomb16/Pngs/refs/heads/main/PubMessagesApp/Registration.png)
 - Email confirmation:
